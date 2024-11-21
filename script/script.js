@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    sliderWidth = 48 ; // slide icon width
+    
     const pageviewsNumber = document.getElementById('Pageviews_Number');
     const price = document.getElementById('price');
   
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const rect = progressContainer.getBoundingClientRect();
             // Calculate the new position of the slider
             let offsetX = e.clientX - rect.left;
-            offsetX = Math.max(0, Math.min(offsetX, rect.width-48)); // Keep within bounds // 48px width of slider
+            offsetX = Math.max(0, Math.min(offsetX, rect.width - sliderWidth)); // respect bounds 
             // Update the slider position
             slider.style.left = `${offsetX}px`;
             // Update the progress bar width
