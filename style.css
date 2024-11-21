@@ -1,0 +1,227 @@
+/*Colors*/
+/*neutral */
+/*Font size*/
+/*18px */
+/*Font weight*/
+/* ==========================
+   Global Reset and Base Styles
+========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: hsl(230, 100%, 99%);
+  background-image: url(images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  min-height: 100vh;
+  width: 100vw;
+}
+body .header {
+  padding: 3.5rem;
+  background-image: url(images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-size: 146px 146px;
+  background-position: center;
+}
+body .header .header__title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: hsl(227, 35%, 25%);
+}
+body .header .header__subtitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: hsl(225, 20%, 60%);
+  margin-top: 0.5rem;
+}
+body .container {
+  width: 40%;
+  min-width: 22rem;
+  margin: 1rem auto;
+}
+body .container .card {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(225, 20%, 60%);
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px hsl(230, 100%, 99%);
+}
+body .container .card .card__header {
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "pageviews price" "progress progress" "billing billing";
+}
+body .container .card .card__header .card__header-pageviews {
+  grid-area: pageviews;
+  align-self: center; /* center elements vertically  */
+  margin: 0;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 1.75px;
+}
+body .container .card .card__header .card__header-price {
+  grid-area: price;
+}
+body .container .card .card__header .card__header-price span {
+  color: hsl(227, 35%, 25%);
+  font-size: 2rem;
+  font-weight: 800;
+}
+body .container .card .card__header .card__progress {
+  grid-area: progress;
+  background-color: hsl(224, 65%, 95%);
+  width: 90%;
+  height: 8px;
+  margin: 2rem auto;
+  border-radius: 30px;
+  position: relative;
+}
+body .container .card .card__header .card__progress .card__progress-bar {
+  background-color: hsl(174, 77%, 80%);
+  width: 50%;
+  height: 8px;
+  border-radius: 30px;
+}
+body .container .card .card__header .card__progress .icon-slider {
+  position: absolute;
+  left: 50%;
+  top: -1rem;
+  padding: 0.75rem;
+  border-radius: 50px;
+  background-color: hsl(174, 86%, 45%);
+  box-shadow: 0 20px 20px hsl(174, 77%, 80%);
+  cursor: grab;
+}
+body .container .card .card__header .card__billing {
+  grid-area: billing;
+  width: 90%;
+  display: flex; /* put elements in the same line*/
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 0;
+  margin: 0 auto;
+}
+body .container .card .card__header .card__billing .card__billing-yearly {
+  display: block;
+  margin-left: 0.5rem;
+}
+body .container .card .card__header .card__billing .card__billing-yearly .discount {
+  display: inline-block;
+  background-color: hsl(14, 92%, 95%);
+  color: hsl(15, 100%, 70%);
+  margin-left: 0.5rem;
+}
+body .container .card .card__header .card__billing .switch {
+  margin: 0 0 0 6rem;
+  position: relative;
+  display: inline-block;
+  min-width: 48px;
+  height: 26px;
+  /* Rounded sliders */
+}
+body .container .card .card__header .card__billing .switch :hover {
+  background-color: hsl(174, 86%, 45%);
+}
+body .container .card .card__header .card__billing .switch input {
+  display: none;
+}
+body .container .card .card__header .card__billing .switch .switch__slider {
+  position: absolute;
+  cursor: grab;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(224, 65%, 95%);
+}
+body .container .card .card__header .card__billing .switch:hover .switch__slider {
+  background-color: hsl(174, 86%, 45%);
+}
+body .container .card .card__header .card__billing .switch .switch__slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: hsl(0, 0%, 100%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+body .container .card .card__header .card__billing .switch input:checked + .switch__slider {
+  background-color: hsl(174, 77%, 80%);
+}
+body .container .card .card__header .card__billing .switch input:checked + .switch__slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+body .container .card .card__header .card__billing .switch .switch__slider.round {
+  border-radius: 34px;
+}
+body .container .card .card__header .card__billing .switch .switch__slider.round:before {
+  border-radius: 50%;
+}
+body .container .card .divider {
+  margin-bottom: 2rem;
+  background-color: hsl(224, 65%, 95%);
+  opacity: 0.2;
+}
+body .container .card .card__footer {
+  grid-area: footer;
+  font-size: 0.9375rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+body .container .card .card__footer .card__footer-trial {
+  text-decoration: none;
+  background-color: hsl(227, 35%, 25%);
+  margin: auto 2rem auto auto;
+  padding: 0.75rem 2.5rem;
+  border-radius: 50px;
+  color: hsl(226, 100%, 87%);
+}
+body .container .card .card__footer .card__footer-trial:hover {
+  cursor: grab;
+}
+body .container .card .card__footer .card__footer-options {
+  list-style-type: none;
+  line-height: 2;
+  color: hsl(225, 20%, 60%);
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  list-style: square inside url(images/icon-check.svg);
+}
+
+@media (max-width: 50rem) {
+  body .container .card .card__header {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "pageviews" "progress" "price" "billing ";
+  }
+  body .container .card .card__footer {
+    font-size: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  body .container .card .card__footer .card__footer-options {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  body .container .card .card__footer .card__footer-trial {
+    margin: auto;
+  }
+}/*# sourceMappingURL=style.css.map */

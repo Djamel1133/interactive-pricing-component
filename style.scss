@@ -1,0 +1,288 @@
+/*Colors*/
+$Soft-fCyan : hsl(174, 77%, 80%) ; //(Full Slider Bar)
+$Strong-Cyan : hsl(174, 86%, 45%) ; //(Slider Bkround)
+$Light-Grayish-Red : hsl(14, 92%, 95%) ; // (Discount Background):
+$Light-Red: hsl(15, 100%, 70%) ; // (Discount Text)
+$Pale-Blue : hsl(226, 100%, 87%) ; //(CTA Text)
+/*neutral */
+$White : hsl(0, 0%, 100%) ;                 //(Pricing Component Background) 
+$Very-Pale-Blue : hsl(230, 100%, 99%) ;     //(Main Background)
+$Light-Grayish-Blue-Slider : hsl(224, 65%, 95%) ;  //(Empty Slider Bar)
+$Light-Grayish-Blue-Toggle : hsl(223, 50%, 87%) ; // (Toggle Background)
+$Grayish-Blue : hsl(225, 20%, 60%) ; //(Text)
+$Dark-Desaturated-Blue : hsl(227, 35%, 25%) ; // (Text & CTA Background)
+
+/*Font size*/
+$fs-small: 0.9375rem; //15px  //(Introductory Paragraph): 15px
+$fs-medium: 1.125rem; /*18px */
+$fs-large: 1.75rem;  //26px
+$fs-x-large: 2rem ; // 32px
+
+/*Font weight*/
+$fw-small: 600 ;
+$fw-medium: 800 ;
+
+/* ==========================
+   Global Reset and Base Styles
+========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: $fs-small;
+  font-weight: $fw-small;
+  text-align: center;
+  background-color: $Very-Pale-Blue ;
+  background-image: url(images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  min-height: 100vh;
+  width: 100vw;
+
+  .header{
+   padding: 3.5rem;
+   background-image: url(images/pattern-circles.svg);
+   background-repeat: no-repeat;
+   background-size: 146px 146px;
+   background-position: center ;
+ 
+   .header__title{
+    font-size: $fs-large;
+    font-weight: $fw-medium;
+    color: $Dark-Desaturated-Blue ;
+   }
+   .header__subtitle {
+    font-size: 14px;
+    font-weight: $fw-medium ;
+    color : $Grayish-Blue ;
+    margin-top: 0.5rem;
+   }
+   }
+
+  .container {
+    width: 40% ; 
+    min-width: 22rem;
+    margin: 1rem auto;
+  
+   .card {
+     background-color: $White;
+    color: $Grayish-Blue ;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px $Very-Pale-Blue;
+
+    .card__header {
+      padding: 2rem 1rem;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto ;
+      grid-template-areas:
+      "pageviews price"
+      "progress progress"
+      "billing billing";
+
+      .card__header-pageviews{
+        grid-area: pageviews;
+        align-self: center;   /* center elements vertically  */
+        margin : 0  ;
+        font-size: $fs-small;
+        text-transform: uppercase ;
+        letter-spacing: 1.75px;
+      }
+      .card__header-price {
+        grid-area: price;
+      
+      span {
+        color: $Dark-Desaturated-Blue;
+        font-size: $fs-x-large; 
+        font-weight: $fw-medium ;
+      } 
+    }
+
+    .card__progress {
+       grid-area: progress;
+       background-color: $Light-Grayish-Blue-Slider ;
+       width: 90% ;
+       height: 8px;
+       margin: 2rem auto;
+       border-radius: 30px;
+       position: relative;
+       //overflow: hidden;
+      .card__progress-bar {
+       background-color: $Soft-fCyan;
+       width: 50%; // put progress value at 50% by default
+       height: 8px;
+       border-radius: 30px;
+      // overflow: hidden;
+      }
+      
+      .icon-slider {
+        position: absolute;
+        left: 50% ;
+        top: -1rem;  // minus padding
+        padding: 0.75rem;
+        border-radius: 50px;
+        background-color: $Strong-Cyan;
+        box-shadow: 0 20px 20px $Soft-fCyan ;
+        cursor: grab ;
+      }
+    }
+
+    .card__billing {
+      grid-area: billing;
+      width: 90%;
+      display: flex;  /* put elements in the same line*/
+      justify-content: space-evenly;
+      align-items: center; 
+      padding: 1rem 0;
+      margin: 0 auto;
+     
+      //.card__billing-monthly {}
+      .card__billing-yearly{
+     
+        display: block;
+        margin-left: 0.5rem;
+        .discount {
+          display: inline-block;
+          background-color: $Light-Grayish-Red ;
+          color: $Light-Red  ;
+          margin-left: 0.5rem ;
+        } ;
+      }
+      
+      .switch {
+        margin: 0 0 0 6rem;
+        position: relative;
+        display: inline-block;
+        min-width: 48px;
+        height: 26px;
+        :hover{
+          background-color: $Strong-Cyan;
+        }
+        input { // hide the checkbox
+         display: none;
+        }
+
+        .switch__slider {
+          position: absolute;
+          cursor: grab;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $Light-Grayish-Blue-Slider;
+        }
+
+          &:hover {
+            .switch__slider {
+              background-color: $Strong-Cyan; // Change this to your desired hover background color
+            }
+          }
+      
+      .switch__slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 4px;
+        bottom: 4px;
+        background-color: $White;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .switch__slider {
+        background-color:  $Soft-fCyan;
+      }
+      
+      input:checked + .switch__slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      /* Rounded sliders */
+      .switch__slider.round {
+        border-radius: 34px;
+      }
+      .switch__slider.round:before {
+        border-radius: 50%;
+      }
+    }
+    }
+  }
+    .divider{
+      margin-bottom: 2rem;
+      background-color: $Light-Grayish-Blue-Slider ;
+      opacity: 0.2;
+    }
+    
+    .card__footer{
+      grid-area: footer;
+      font-size: .9375rem ;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1.5rem 1.5rem 1.5rem;
+     
+      
+      .card__footer-trial{
+        text-decoration: none;
+        background-color: $Dark-Desaturated-Blue ;
+        margin: auto 2rem auto auto ;
+        padding: 0.75rem 2.5rem;
+        border-radius: 50px;
+        color: $Pale-Blue;
+        &:hover{
+          cursor: grab;
+        }
+      }
+      .card__footer-options {
+        list-style-type: none;
+        line-height: 2;
+        color : $Grayish-Blue ;
+        text-align: left;
+        margin: 0;
+        padding: 0; 
+        list-style: square inside url(images/icon-check.svg);
+      }
+    }
+   } 
+  }
+}
+
+@media (max-width:50rem){
+ body{
+  .container {
+    .card {
+     .card__header { 
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto auto ;
+      grid-template-areas:
+      "pageviews"
+      "progress"
+      "price"
+      "billing "
+   } 
+
+   .card__footer{
+    font-size: .75rem ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    .card__footer-options {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    .card__footer-trial{
+      margin: auto;
+    }
+  }
+  }
+ }
+
+} 
+}

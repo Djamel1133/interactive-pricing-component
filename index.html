@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+ 
+  <header class="header">
+    <h1 class="header__title">Simple, traffic-based pricing</h1>
+    <h2 class="header__subtitle">Sign-up for our 30-day trial. No credit card required.</h2>
+  </header>
+  
+ <main class="container">
+  <section class="card">
+   <div class="card__header">
+      <h3 class="card__header-pageviews" id="Pageviews_Number">100k Pageviews</h3> 
+       <h4 class="card__header-price"><span id="price"> $16.00 </span> / month</h4> 
+   <div class="card__progress" id="card__progress">
+    <!--Progress Bar -->
+    <div class="card__progress-bar" id="card__progress-bar" ></div>
+    <!--Progress indicateur -->
+    <img class="icon-slider" id="icon-slider" src="images/icon-slider.svg" alt="">
+   </div>
+  
+   <div class="card__billing">
+     <h5 class="card__billing-monthly"> Monthly Billing</h5>
+     <!--toogle button  -->
+     <label for="Billing-toggle" class="switch">
+        <input type="checkbox" id="Billing-toggle" class="switch__input">
+        <span class="switch__slider round"></span>
+      </label>
+      <h5 class="card__billing-yearly">
+        Yearly Billing <span class="discount">25% discount</span>  
+      </h5>
+   </div>
+  </div>
+
+ <hr class="divider">
+ <div class="card__footer">
+  
+   <ul class="card__footer-options">
+      <li>Unlimited websites</li>
+      <li>100% data ownership</li>
+      <li>Email reports</li>
+    </ul> 
+    <a href="#" class="card__footer-trial" id="cta-trial">Start my trial</a>
+  </div>
+
+</section>
+</main>
+<!--
+ <footer>
+  <div class="footer__attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</footer>
+-->
+</body>
+<script src="script/script.js" differ></script>
+
+</html>
