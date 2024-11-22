@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update the progress bar width
             const progressPercentage = (offsetX / rect.width) * 100;
             progressBar.style.width = `${progressPercentage}%`;
+            // update the slider position // thnaks https://www.frontendmentor.io/profile/KapteynUniverse 
+            slider.style.left = `${progressPercentage}%`;
         }
     });
     
@@ -60,12 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
       pageviewsNumber.innerHTML = pageNumber +"k Pageviews"  ;
       price.innerHTML=cost;
     }
-
-    // how deal with donwsizing window to match progressbar value and slider position ???
-    window.addEventListener('resize', () => {
-       // ????? later perhabs or some one qui aura la gentillesse de m'aider merci.
-    });
-
 })
 
 
